@@ -6,6 +6,9 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -43,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         BadgeDrawable homeBadge = binding.navView.getOrCreateBadge(R.id.navigation_home);
         homeBadge.setVisible(true);
 
+        // Edge-to-edge experience
+        // Top system bar won't be considered on screen's dimensions
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        // Bottom (navigation) system bar won't be translucent, it will take the color defined in themes
+        WindowInsetsControllerCompat windowInsetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.setAppearanceLightNavigationBars(true);
     }
 
 }

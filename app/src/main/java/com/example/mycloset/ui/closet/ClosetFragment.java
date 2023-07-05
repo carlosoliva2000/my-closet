@@ -24,8 +24,8 @@ public class ClosetFragment extends Fragment {
         binding = FragmentClosetBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCloset;
-        closetViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        final TextView textView = binding.textCloset;
+//        closetViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
