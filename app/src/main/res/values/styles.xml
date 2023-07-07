@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.App.Card.Media" parent="">
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+<!--    <style name="Theme.App" parent="Theme.Material3.*">-->
+<!--        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>-->
+<!--    </style>-->
+
+<!--    <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">-->
+<!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>-->
+<!--        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>-->
+<!--    </style>-->
+
+<!--    <style name="ThemeOverlay.App.Card" parent="">-->
+<!--        <item name="colorSecondary">@color/white</item>-->
+<!--        <item name="colorSurface">@color/cardview_light_background</item>-->
+<!--        <item name="colorOnSurfaceVariant">@color/cardview_dark_background</item>-->
+<!--    </style>-->
+
+</resources>
