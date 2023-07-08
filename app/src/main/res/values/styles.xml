@@ -6,6 +6,14 @@
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
 
+    <style name="MyBackground">
+        <item name="android:background">@color/carne_light</item>
+    </style>
+
+    <style name="MyCard" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:background">@color/carne_cards</item>
+    </style>
+
 <!--    <style name="Theme.App" parent="Theme.Material3.*">-->
 <!--        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>-->
 <!--    </style>-->

@@ -8,5 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="carne">#FFE0B3</color>
+    <color name="carne_light">#FFFCF7</color>
+    <color name="carne_cards">#FFEBCE</color>
 <!--    <color name="ic_launcher_background">#FFFFEBCE</color>-->
 </resources>

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFCF7"
     tools:context=".ui.closet.ClosetFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -35,10 +35,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/armario"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/armario" />
 
             <View
                 android:layout_width="match_parent"
@@ -46,9 +46,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Ver todo"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -121,10 +121,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/bermuda"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/bermuda" />
 
             <View
                 android:layout_width="match_parent"
@@ -132,9 +132,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Pantalones"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -207,9 +207,9 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/camiseta" />
 
             <View
@@ -218,9 +218,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Camisetas"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -292,9 +292,9 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/sudadera" />
 
             <View
@@ -303,9 +303,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Sudaderas"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -378,10 +378,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/zapatillas"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/zapatillas" />
 
             <View
                 android:layout_width="match_parent"
@@ -389,9 +389,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Zapatillas"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -464,10 +464,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/gorra"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/gorra" />
 
             <View
                 android:layout_width="match_parent"
@@ -475,9 +475,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Gorras"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -549,10 +549,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/chaqueta"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/chaqueta" />
 
             <View
                 android:layout_width="match_parent"
@@ -560,9 +560,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Chaquetas"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -634,10 +634,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/banador"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/banador" />
 
             <View
                 android:layout_width="match_parent"
@@ -645,9 +645,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Bañadores"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -720,10 +720,10 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:scaleType="centerCrop"
                 app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                app:srcCompat="@drawable/chanclas"
-                android:scaleType="centerCrop"/>
+                app:srcCompat="@drawable/chanclas" />
 
             <View
                 android:layout_width="match_parent"
@@ -731,9 +731,9 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
+                style="@style/MyCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFEBCE"
                 android:text="Chanclas"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -869,19 +869,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tabMode="fixed">
         <!--    RENDERING BUG!!! Comment out these TabItems to render properly in Design tab    -->
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clothes"
-            android:icon="@drawable/ic_dashboard_black_24dp"
-            />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clothes"
+                    android:icon="@drawable/ic_dashboard_black_24dp"
+                    />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Outfits"
-            android:icon="@android:drawable/btn_star"
-            />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Outfits"
+                    android:icon="@android:drawable/btn_star"
+                    />
 
     </com.google.android.material.tabs.TabLayout>
 
