@@ -18,7 +18,6 @@ import com.example.mycloset.databinding.FragmentClosetBinding;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-// https://hmkcode.com/android/android-creating-swipe-views-tabs/
 
 public class ClosetFragment extends Fragment {
 
@@ -52,6 +51,8 @@ public class ClosetFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        // Swipe views/tabs: https://hmkcode.com/android/android-creating-swipe-views-tabs/
+
 //        closetCollectionAdapter = new ClosetCollectionAdapter(this);
         viewPager = binding.pager; // Or view.findViewById(R.id.pager); if return inflater.inflate(R.layout.fragment_closet, container, false);
         closetStateAdapter = new ClosetStateAdapter(this);

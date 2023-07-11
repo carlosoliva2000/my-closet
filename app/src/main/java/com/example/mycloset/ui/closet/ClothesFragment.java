@@ -3,12 +3,25 @@ package com.example.mycloset.ui.closet;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.transition.AutoTransition;
+import androidx.transition.Explode;
+import androidx.transition.Fade;
+import androidx.transition.Slide;
+import androidx.transition.TransitionManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mycloset.R;
+import com.example.mycloset.databinding.FragmentClothesBinding;
+import com.example.mycloset.ui.anotherscroll.AnotherScrollFragment;
+import com.example.mycloset.ui.calendar.CalendarFragment;
+import com.google.android.material.card.MaterialCardView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +30,11 @@ import com.example.mycloset.R;
  */
 public class ClothesFragment extends Fragment {
 
-    public ClothesFragment() {}
+    private FragmentClothesBinding binding;
+    private MaterialCardView cardView;
+
+    public ClothesFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +45,48 @@ public class ClothesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_clothes, container, false);
+//        View inflate = inflater.inflate(R.layout.fragment_clothes, container, false);
+//        inflate.findViewById(R.id.card_todo).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("MYLISTENER", "Click!");
+//                Toast.makeText(view.getContext(), "MOOOOC?", Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+        binding = FragmentClothesBinding.inflate(inflater, container, false);
+        binding.cardTodo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                TransitionManager.beginDelayedTransition(binding.getRoot(), new AutoTransition());
+//                view.setVisibility(View.GONE);
+
+//                TransitionManager.beginDelayedTransition((ViewGroup) getParentFragment().getView(), new Fade());
+                replaceFragment();
+            }
+        });
+
+        return binding.getRoot();
+    }
+
+    public void replaceFragment() {
+        // Animations: https://developer.android.com/guide/fragments/animate
+
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setReorderingAllowed(true)
+                .setCustomAnimations(
+                        R.anim.slide_in,  // enter
+                        R.anim.fade_out,  // exit
+                        R.anim.fade_in,   // popEnter
+                        R.anim.slide_out  // popExit
+                )
+                .replace(((ViewGroup) getView().getParent()).getId(), AnotherScrollFragment.class, null)
+                .addToBackStack(null)
+                .commit();
+
+        //        transaction.setCustomAnimations(androidx.transition.R.anim.abc_slide_in_bottom, androidx.transition.R.anim.abc_slide_out_bottom,
+//                androidx.transition.R.anim.abc_slide_in_top, androidx.transition.R.anim.abc_slide_out_top);
     }
 
 
