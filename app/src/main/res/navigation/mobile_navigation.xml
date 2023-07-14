@@ -31,13 +31,13 @@
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_scroll"-->
-<!--        android:name="com.example.mycloset.ui.scroll.ScrollFragment"-->
+<!--        android:brand="com.example.mycloset.ui.scroll.ScrollFragment"-->
 <!--        android:label="Scroll"-->
 <!--        tools:layout="@layout/fragment_scroll" />-->
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_another_scroll"-->
-<!--        android:name="com.example.mycloset.ui.anotherscroll.AnotherScrollFragment"-->
+<!--        android:brand="com.example.mycloset.ui.anotherscroll.AnotherScrollFragment"-->
 <!--        android:label="AnotherScroll"-->
 <!--        tools:layout="@layout/fragment_another_scrolling" />-->
 

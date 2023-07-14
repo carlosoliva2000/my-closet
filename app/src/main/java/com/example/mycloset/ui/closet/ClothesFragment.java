@@ -2,6 +2,11 @@ package com.example.mycloset.ui.closet;
 
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -10,6 +15,7 @@ import androidx.transition.Explode;
 import androidx.transition.Fade;
 import androidx.transition.Slide;
 import androidx.transition.TransitionManager;
+import androidx.transition.Visibility;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +28,7 @@ import com.example.mycloset.databinding.FragmentClothesBinding;
 import com.example.mycloset.ui.anotherscroll.AnotherScrollFragment;
 import com.example.mycloset.ui.calendar.CalendarFragment;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +62,7 @@ public class ClothesFragment extends Fragment {
 //        });
 
         binding = FragmentClothesBinding.inflate(inflater, container, false);
+
         binding.cardTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +70,35 @@ public class ClothesFragment extends Fragment {
 //                view.setVisibility(View.GONE);
 
 //                TransitionManager.beginDelayedTransition((ViewGroup) getParentFragment().getView(), new Fade());
-                replaceFragment();
+                replaceFragment(AnotherScrollFragment.class);
+            }
+        });
+
+        binding.fabClothes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(AddGarmentFragment.class);
             }
         });
 
         return binding.getRoot();
     }
 
-    public void replaceFragment() {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+//        getActivity().getParent()
+//        FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton2);
+//        fab.setVisibility(View.VISIBLE);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                replaceFragment();
+//            }
+//        });
+    }
+
+    public void replaceFragment(Class<? extends androidx.fragment.app.Fragment> fragment) {
         // Animations: https://developer.android.com/guide/fragments/animate
 
         FragmentManager fragmentManager = getParentFragmentManager();
@@ -81,7 +110,7 @@ public class ClothesFragment extends Fragment {
                         R.anim.fade_in,   // popEnter
                         R.anim.slide_out  // popExit
                 )
-                .replace(((ViewGroup) getView().getParent()).getId(), AnotherScrollFragment.class, null)
+                .replace(((ViewGroup) getView().getParent()).getId(), fragment, null)
                 .addToBackStack(null)
                 .commit();
 
@@ -89,8 +118,7 @@ public class ClothesFragment extends Fragment {
 //                androidx.transition.R.anim.abc_slide_in_top, androidx.transition.R.anim.abc_slide_out_top);
     }
 
-
-//    // TODO: Rename parameter arguments, choose names that match
+    //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
 //    private static final String ARG_PARAM2 = "param2";
