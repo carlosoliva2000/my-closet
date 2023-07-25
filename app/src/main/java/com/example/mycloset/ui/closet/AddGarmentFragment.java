@@ -1,13 +1,19 @@
 package com.example.mycloset.ui.closet;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +23,8 @@ import com.example.mycloset.data.AppDatabase;
 import com.example.mycloset.data.entities.Garment;
 import com.example.mycloset.databinding.FragmentAddGarmentBinding;
 
+import java.io.File;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AddGarmentFragment} factory method to
@@ -25,6 +33,26 @@ import com.example.mycloset.databinding.FragmentAddGarmentBinding;
 public class AddGarmentFragment extends Fragment {
 
     private FragmentAddGarmentBinding binding;
+    private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Registers a photo picker activity launcher in single-select mode.
+        pickMedia =
+                registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                    // Callback is invoked after the user selects a media item or closes the
+                    // photo picker.
+//                    File file = new File(String.valueOf(uri.get(0)));
+                    binding.imageViewGarment.setImageURI(uri);
+                    binding.imageViewGarment.setTag(uri);
+                    if (uri != null) {
+                        Log.d("PhotoPicker", "Selected URI: " + uri);
+                    } else {
+                        Log.d("PhotoPicker", "No media selected");
+                    }
+                });
+    }
 
     @Nullable
     @Override
@@ -37,6 +65,7 @@ public class AddGarmentFragment extends Fragment {
                 Garment garment = new Garment();
                 garment.brand = binding.editTextBrand.getText().toString();
                 garment.category = binding.editTextCategory.getText().toString();
+                garment.uri = (Uri) binding.imageViewGarment.getTag();
 
                 AppDatabase db = AppDatabase.get(view.getContext());
                 new Thread(new Runnable() {
@@ -56,8 +85,23 @@ public class AddGarmentFragment extends Fragment {
             }
         });
 
+        binding.imageViewGarment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickMedia.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                        .build());
+            }
+        });
+
         return binding.getRoot();
     }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Log.d("MIC", "MICCCCCCCCCCCCC");
+//    }
 
     public void replaceFragment() {
         // Animations: https://developer.android.com/guide/fragments/animate
