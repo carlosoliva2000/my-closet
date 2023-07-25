@@ -46,6 +46,8 @@ public class AddGarmentFragment extends Fragment {
 //                    File file = new File(String.valueOf(uri.get(0)));
                     binding.imageViewGarment.setImageURI(uri);
                     binding.imageViewGarment.setTag(uri);
+                    int flag = Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                    getContext().getContentResolver().takePersistableUriPermission(uri, flag);  // ATTENTION TO THIS LINE!!! Crash when showing clothes if not present
                     if (uri != null) {
                         Log.d("PhotoPicker", "Selected URI: " + uri);
                     } else {

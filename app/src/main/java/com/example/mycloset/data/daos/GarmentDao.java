@@ -25,4 +25,7 @@ public interface GarmentDao {
 
     @Query("SELECT * FROM Garment")
     ListenableFuture<List<Garment>> selectAll();
+
+    @Query("SELECT * FROM Garment WHERE UPPER(category)=:category")
+    ListenableFuture<List<Garment>> selectCategory(String category);
 }

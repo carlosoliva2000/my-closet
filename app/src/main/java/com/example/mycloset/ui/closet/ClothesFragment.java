@@ -27,6 +27,7 @@ import com.example.mycloset.R;
 import com.example.mycloset.databinding.FragmentClothesBinding;
 import com.example.mycloset.ui.anotherscroll.AnotherScrollFragment;
 import com.example.mycloset.ui.calendar.CalendarFragment;
+import com.example.mycloset.ui.overview.MicFragment;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -36,6 +37,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * create an instance of this fragment.
  */
 public class ClothesFragment extends Fragment {
+
+    class CardListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            replaceFragment(MicFragment.newInstance((String) view.getTag(), 2));
+        }
+    }
 
     private FragmentClothesBinding binding;
     private MaterialCardView cardView;
@@ -63,6 +72,8 @@ public class ClothesFragment extends Fragment {
 
         binding = FragmentClothesBinding.inflate(inflater, container, false);
 
+        CardListener cardListener = new CardListener();
+
         binding.cardTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,9 +81,17 @@ public class ClothesFragment extends Fragment {
 //                view.setVisibility(View.GONE);
 
 //                TransitionManager.beginDelayedTransition((ViewGroup) getParentFragment().getView(), new Fade());
-                replaceFragment(AnotherScrollFragment.class);
+                replaceFragment(MicFragment.newInstance("ALL", 3));
             }
         });
+        binding.cardBanadores.setOnClickListener(cardListener);
+        binding.cardCamisetas.setOnClickListener(cardListener);
+        binding.cardChanclas.setOnClickListener(cardListener);
+        binding.cardChaquetas.setOnClickListener(cardListener);
+        binding.cardGorras.setOnClickListener(cardListener);
+        binding.cardPantalones.setOnClickListener(cardListener);
+        binding.cardSudaderas.setOnClickListener(cardListener);
+        binding.cardZapatillas.setOnClickListener(cardListener);
 
         binding.fabClothes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +101,10 @@ public class ClothesFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+    public void onCardClick(View view) {
+        replaceFragment(MicFragment.newInstance((String) view.getTag()));
     }
 
     @Override
@@ -98,9 +121,27 @@ public class ClothesFragment extends Fragment {
 //        });
     }
 
+    public void replaceFragment(Fragment fragment) {
+        // Animations: https://developer.android.com/guide/fragments/animate
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setReorderingAllowed(true)
+                .setCustomAnimations(
+                        R.anim.slide_in,  // enter
+                        R.anim.fade_out,  // exit
+                        R.anim.fade_in,   // popEnter
+                        R.anim.slide_out  // popExit
+                )
+                .replace(((ViewGroup) getView().getParent()).getId(), fragment, null)
+                .addToBackStack(null)
+                .commit();
+
+        //        transaction.setCustomAnimations(androidx.transition.R.anim.abc_slide_in_bottom, androidx.transition.R.anim.abc_slide_out_bottom,
+//                androidx.transition.R.anim.abc_slide_in_top, androidx.transition.R.anim.abc_slide_out_top);
+    }
+
     public void replaceFragment(Class<? extends androidx.fragment.app.Fragment> fragment) {
         // Animations: https://developer.android.com/guide/fragments/animate
-
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setReorderingAllowed(true)
