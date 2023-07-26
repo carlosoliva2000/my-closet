@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,10 +21,13 @@ import com.example.mycloset.data.entities.Outfit;
 import com.example.mycloset.data.entities.OutfitGarmentCrossRef;
 import com.example.mycloset.data.entities.OutfitWithClothes;
 import com.example.mycloset.databinding.FragmentOutfitsBinding;
+import com.example.mycloset.ui.overview.ClothesGridFragment;
+import com.example.mycloset.ui.overview.OutfitsGridRecyclerViewAdapter;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +38,9 @@ import java.util.List;
 public class OutfitsFragment extends Fragment {
 
     private FragmentOutfitsBinding binding;
+    private String mode = "READ";  // READ or SELECT
+    private List<Outfit> outfits;
+    private OutfitsGridRecyclerViewAdapter outfitsGridRecyclerViewAdapter;
 
     public OutfitsFragment() {}
 
@@ -55,18 +62,12 @@ public class OutfitsFragment extends Fragment {
             }
         });
 
-        AppDatabase db = AppDatabase.get(getContext());
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//                Outfit outfit = new Outfit();
-//                outfit.name = "Hola";
-//                outfit.uri = Uri.parse("Mic");
-//                db.outfitDao().insertAll(outfit);
-//            }
-//        }).start();
+        outfits = new ArrayList<>();
+        outfitsGridRecyclerViewAdapter = new OutfitsGridRecyclerViewAdapter(outfits, "READ", this);
+        binding.recyclerViewListOutfits.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        binding.recyclerViewListOutfits.setAdapter(outfitsGridRecyclerViewAdapter);
 
+        AppDatabase db = AppDatabase.get(getContext());
 
         ListenableFuture<List<OutfitWithClothes>> listListenableFuture = db.outfitDao().getOutfitsWithClothes();
         Futures.addCallback(
@@ -93,8 +94,18 @@ public class OutfitsFragment extends Fragment {
                 new FutureCallback<List<Outfit>>() {
                     public void onSuccess(List<Outfit> result) {
                         // handle success
-                        for (Outfit outfitWithClothes: result)
-                            Log.d("OUTFITS", outfitWithClothes.toString());
+                        if (result == null || result.size() == 0) {
+                            binding.recyclerViewListOutfits.setVisibility(View.GONE);
+                            binding.textView2.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            binding.textView2.setVisibility(View.GONE);
+                            binding.recyclerViewListOutfits.setVisibility(View.VISIBLE);
+                            outfitsGridRecyclerViewAdapter.setmValues(result);
+                            binding.recyclerViewListOutfits.setAdapter(outfitsGridRecyclerViewAdapter);
+                            for (Outfit outfitWithClothes : result)
+                                Log.d("OUTFITS", outfitWithClothes.toString());
+                        }
                     }
 
                     public void onFailure(@NonNull Throwable thrown) {
@@ -112,7 +123,7 @@ public class OutfitsFragment extends Fragment {
                 new FutureCallback<List<OutfitGarmentCrossRef>>() {
                     public void onSuccess(List<OutfitGarmentCrossRef> result) {
                         // handle success
-                        for (OutfitGarmentCrossRef outfitWithClothes: result)
+                        for (OutfitGarmentCrossRef outfitWithClothes : result)
                             Log.d("CROSSREF", outfitWithClothes.toString());
                     }
 
@@ -145,6 +156,38 @@ public class OutfitsFragment extends Fragment {
 
         //        transaction.setCustomAnimations(androidx.transition.R.anim.abc_slide_in_bottom, androidx.transition.R.anim.abc_slide_out_bottom,
 //                androidx.transition.R.anim.abc_slide_in_top, androidx.transition.R.anim.abc_slide_out_top);
+    }
+
+    public static class OnOutfitClicked implements View.OnClickListener {
+        private Outfit mItem;
+        private OutfitsFragment mFragment;
+
+        public OnOutfitClicked(Outfit outfit, OutfitsFragment fragment) {
+            mItem = outfit;
+            mFragment = fragment;
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("CLICK!", mItem.toString());
+            if (mFragment.mode.equals("READ")) {
+                Log.d("MODO READ", "Desplegar tab...");
+            }
+            else {
+                Log.d("MODO SELECT", "Terminar fragment y devolver resultado!");
+//                Bundle result = new Bundle();
+//                result.putLong("ID_SELECTED", mItem.garmentId);
+//                mFragment.getParentFragmentManager().setFragmentResult("ID_SELECTED", result);
+//                FragmentTransaction transaction = mFragment.getParentFragmentManager().beginTransaction();
+//                transaction.setReorderingAllowed(true)
+//                        .setCustomAnimations(
+//                                R.anim.slide_in,  // exit
+//                                R.anim.slide_out  // popExit
+//                        )
+//                        .remove(mFragment)
+//                        .commit();
+            }
+        }
     }
 
 //    // TODO: Rename parameter arguments, choose names that match

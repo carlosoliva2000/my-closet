@@ -126,6 +126,9 @@ public class ClothesGridFragment extends Fragment {
                 new FutureCallback<List<Garment>>() {
                     public void onSuccess(List<Garment> result) {
                         // handle success
+                        if (result==null || result.size()==0) {
+                            // TODO create msg for empty category!
+                        }
                         myClothesGridRecyclerViewAdapter.setmValues(result);
                         recyclerView.setAdapter(myClothesGridRecyclerViewAdapter);
 //                        String s = "";

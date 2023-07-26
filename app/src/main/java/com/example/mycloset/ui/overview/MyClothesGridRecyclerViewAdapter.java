@@ -49,9 +49,7 @@ public class MyClothesGridRecyclerViewAdapter extends RecyclerView.Adapter<MyClo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         return new ViewHolder(FragmentClothesItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
-
     }
 
     @Override
