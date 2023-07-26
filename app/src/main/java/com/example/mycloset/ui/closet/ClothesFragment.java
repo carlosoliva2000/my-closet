@@ -2,34 +2,20 @@ package com.example.mycloset.ui.closet;
 
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.transition.AutoTransition;
-import androidx.transition.Explode;
-import androidx.transition.Fade;
-import androidx.transition.Slide;
-import androidx.transition.TransitionManager;
-import androidx.transition.Visibility;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.mycloset.R;
 import com.example.mycloset.databinding.FragmentClothesBinding;
-import com.example.mycloset.ui.anotherscroll.AnotherScrollFragment;
-import com.example.mycloset.ui.calendar.CalendarFragment;
-import com.example.mycloset.ui.overview.MicFragment;
+import com.example.mycloset.ui.overview.ClothesGridFragment;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,7 +28,7 @@ public class ClothesFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            replaceFragment(MicFragment.newInstance((String) view.getTag(), 2));
+            replaceFragment(ClothesGridFragment.newInstance((String) view.getTag(), 2, "READ"));
         }
     }
 
@@ -81,7 +67,7 @@ public class ClothesFragment extends Fragment {
 //                view.setVisibility(View.GONE);
 
 //                TransitionManager.beginDelayedTransition((ViewGroup) getParentFragment().getView(), new Fade());
-                replaceFragment(MicFragment.newInstance("ALL", 3));
+                replaceFragment(ClothesGridFragment.newInstance("ALL", 3, "READ"));
             }
         });
         binding.cardBanadores.setOnClickListener(cardListener);
@@ -104,7 +90,7 @@ public class ClothesFragment extends Fragment {
     }
 
     public void onCardClick(View view) {
-        replaceFragment(MicFragment.newInstance((String) view.getTag()));
+        replaceFragment(ClothesGridFragment.newInstance((String) view.getTag(), "READ"));
     }
 
     @Override

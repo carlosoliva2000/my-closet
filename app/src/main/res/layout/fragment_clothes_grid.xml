@@ -8,5 +8,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.overview.MicFragment"
-    tools:listitem="@layout/fragment_item" />
+    tools:context=".ui.overview.ClothesGridFragment"
+    tools:listitem="@layout/fragment_clothes_item" />

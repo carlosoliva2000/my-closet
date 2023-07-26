@@ -5,10 +5,10 @@ import android.net.Uri;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "garment")
+@Entity
 public class Garment {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public long garmentId;
 
     public String brand;
     public String category;
@@ -17,9 +17,10 @@ public class Garment {
     @Override
     public String toString() {
         return "Garment{" +
-                "brand='" + brand + '\'' +
+                "id=" + garmentId +
+                ", brand='" + brand + '\'' +
                 ", category='" + category + '\'' +
-                ", uri='" + uri + '\'' +
+                ", uri=" + uri +
                 '}';
     }
 }
