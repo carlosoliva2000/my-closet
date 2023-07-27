@@ -23,6 +23,7 @@ import com.example.mycloset.data.entities.OutfitWithClothes;
 import com.example.mycloset.databinding.FragmentOutfitsBinding;
 import com.example.mycloset.ui.overview.ClothesGridFragment;
 import com.example.mycloset.ui.overview.OutfitsGridRecyclerViewAdapter;
+import com.example.mycloset.utils.FragmentUtils;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -172,6 +173,7 @@ public class OutfitsFragment extends Fragment {
             Log.d("CLICK!", mItem.toString());
             if (mFragment.mode.equals("READ")) {
                 Log.d("MODO READ", "Desplegar tab...");
+                FragmentUtils.replaceFragment(mFragment, ShowOutfitFragment.newInstance(mItem.outfitId));
             }
             else {
                 Log.d("MODO SELECT", "Terminar fragment y devolver resultado!");

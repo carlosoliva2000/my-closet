@@ -27,9 +27,16 @@ public interface OutfitDao {
     @Query("SELECT * FROM Outfit")
     ListenableFuture<List<Outfit>> selectAll();
 
+    @Query("SELECT * FROM Outfit WHERE outfitId=:id")
+    ListenableFuture<Outfit> selectById(long id);
+
     @Transaction
     @Query("SELECT * FROM Outfit")
     ListenableFuture<List<OutfitWithClothes>> getOutfitsWithClothes();
+
+    @Transaction
+    @Query("SELECT * FROM Outfit WHERE outfitId=:id")
+    ListenableFuture<OutfitWithClothes> getOutfitWithClothesById(long id);
 
     @Query("SELECT * FROM OutfitGarmentCrossRef")
     ListenableFuture<List<OutfitGarmentCrossRef>> getOutfitGarmentCrossRef();

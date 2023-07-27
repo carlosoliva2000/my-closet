@@ -20,6 +20,8 @@ import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
 import com.example.mycloset.data.daos.GarmentDao;
 import com.example.mycloset.data.entities.Garment;
+import com.example.mycloset.ui.closet.ShowGarmentFragment;
+import com.example.mycloset.utils.FragmentUtils;
 import com.google.android.material.card.MaterialCardView;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -163,6 +165,7 @@ public class ClothesGridFragment extends Fragment {
             Log.d("CLICK!", mItem.toString());
             if (mFragment.mode.equals("READ")) {
                 Log.d("MODO READ", "Desplegar tab...");
+                FragmentUtils.addFragment(mFragment, ShowGarmentFragment.newInstance(mItem.garmentId));
             }
             else {
                 Log.d("MODO SELECT", "Terminar fragment y devolver resultado!");
