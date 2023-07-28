@@ -1,10 +1,17 @@
 package com.example.mycloset.ui.closet;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -42,21 +49,64 @@ public class OutfitsFragment extends Fragment {
 
     public OutfitsFragment() {}
 
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            mode = getArguments().getString(ARG_MODE);
             mMode = getArguments().getString(ARG_MODE);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppDatabase db = AppDatabase.get(getContext());
+        ListenableFuture<List<Outfit>> listListenableFuture2 = db.outfitDao().selectAll();
+        Futures.addCallback(
+                listListenableFuture2,
+                new FutureCallback<List<Outfit>>() {
+                    public void onSuccess(List<Outfit> result) {
+                        // handle success
+                        if (result == null || result.size() == 0) {
+                            binding.recyclerViewListOutfits.setVisibility(View.GONE);
+                            binding.textView2.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            binding.textView2.setVisibility(View.GONE);
+                            binding.recyclerViewListOutfits.setVisibility(View.VISIBLE);
+                            outfitsGridRecyclerViewAdapter.setmValues(result);
+                            binding.recyclerViewListOutfits.setAdapter(outfitsGridRecyclerViewAdapter);
+                            for (Outfit outfitWithClothes : result)
+                                Log.d("OUTFITS", outfitWithClothes.toString());
+                        }
+                    }
+
+                    public void onFailure(@NonNull Throwable thrown) {
+                        // handle failure
+                        Log.e("CUIDADO", thrown.toString());
+                    }
+                },
+                // causes the callbacks to be executed on the main (UI) thread
+                getContext().getMainExecutor()
+        );
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        if (getArguments() != null) {
-            mMode = getArguments().getString(ARG_MODE);
-        }
+//        if (getArguments() != null) {
+//            mMode = getArguments().getString(ARG_MODE);
+//        }
 //        if (getArguments() != null) {
 //            String mode = requireArguments().getString(ARG_MODE);
 //            Log.d("MODE???", mode + "");
@@ -73,6 +123,9 @@ public class OutfitsFragment extends Fragment {
                 replaceFragment(AddOutfitFragment.class);
             }
         });
+
+        if (mode.equals("SELECT"))
+            binding.floatingActionButtonOutfits.setVisibility(View.GONE);
 
         outfits = new ArrayList<>();
         outfitsGridRecyclerViewAdapter = new OutfitsGridRecyclerViewAdapter(outfits, "READ", this);
@@ -188,17 +241,23 @@ public class OutfitsFragment extends Fragment {
             }
             else {
                 Log.d("MODO SELECT", "Terminar fragment y devolver resultado!");
-                Bundle result = new Bundle();
-                result.putLong("OUTFIT_ID_SELECT", mItem.outfitId);
-                mFragment.getParentFragmentManager().setFragmentResult("OUTFIT_ID_SELECTED", result);
-                FragmentTransaction transaction = mFragment.getParentFragmentManager().beginTransaction();
-                transaction.setReorderingAllowed(true)
-                        .setCustomAnimations(
-                                R.anim.slide_in,  // exit
-                                R.anim.slide_out  // popExit
-                        )
-                        .remove(mFragment)
-                        .commit();
+                Intent intent = new Intent();
+                intent.putExtra("OUTFIT_ID_SELECT", mItem.outfitId);
+                mFragment.getActivity().setResult(Activity.RESULT_OK, intent);
+                mFragment.getActivity().finish();
+
+//                Bundle result = new Bundle();
+//                result.putLong("OUTFIT_ID_SELECT", mItem.outfitId);
+//                mFragment.getParentFragmentManager().setFragmentResult("OUTFIT_ID_SELECTED", result);
+//                FragmentTransaction transaction = mFragment.getParentFragmentManager().beginTransaction();
+//                transaction.setReorderingAllowed(true)
+//                        .setCustomAnimations(
+//                                R.anim.slide_in,  // exit
+//                                R.anim.slide_out  // popExit
+//                        )
+//                        .remove(mFragment)
+//                        .commit();
+//                mFragment.getActivity().finish();
             }
         }
     }

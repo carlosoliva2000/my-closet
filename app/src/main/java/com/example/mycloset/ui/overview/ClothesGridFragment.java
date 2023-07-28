@@ -20,6 +20,8 @@ import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
 import com.example.mycloset.data.daos.GarmentDao;
 import com.example.mycloset.data.entities.Garment;
+import com.example.mycloset.databinding.FragmentClothesGridBinding;
+import com.example.mycloset.databinding.FragmentClothesItemBinding;
 import com.example.mycloset.ui.closet.ShowGarmentFragment;
 import com.example.mycloset.utils.FragmentUtils;
 import com.google.android.material.card.MaterialCardView;
@@ -46,6 +48,7 @@ public class ClothesGridFragment extends Fragment {
     private String mode = "READ";  // READ or SELECT
     private List<Garment> clothes = new ArrayList<>();
     private MyClothesGridRecyclerViewAdapter myClothesGridRecyclerViewAdapter;
+    private FragmentClothesGridBinding binding;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -93,12 +96,16 @@ public class ClothesGridFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_clothes_grid, container, false);
+//        View view = inflater.inflate(R.layout.fragment_clothes_grid, container, false);
+        binding = FragmentClothesGridBinding.inflate(inflater, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            recyclerView = (RecyclerView) view;
+        if (true /*view instanceof RecyclerView*/) {
+            Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
+//            view = view.findViewById(R.id.list);
+//            Context context = view.getContext();
+            Context context = getContext();
+            recyclerView =  binding.list;  //(RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
@@ -110,7 +117,8 @@ public class ClothesGridFragment extends Fragment {
             getObjects();
 //            recyclerView.setAdapter(new MyMicRecyclerViewAdapter(PlaceholderContent.ITEMS));
         }
-        return view;
+        return binding.getRoot();
+//        return view;
     }
 
     private void getObjects() {
@@ -123,16 +131,21 @@ public class ClothesGridFragment extends Fragment {
         else
             listListenableFuture = garmentDao.selectCategory(category.toUpperCase());
 
+        Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
         Futures.addCallback(
                 listListenableFuture,
                 new FutureCallback<List<Garment>>() {
                     public void onSuccess(List<Garment> result) {
+
                         // handle success
                         if (result==null || result.size()==0) {
-                            // TODO create msg for empty category!
+                            showNoClothesMsg();
+
                         }
-                        myClothesGridRecyclerViewAdapter.setmValues(result);
-                        recyclerView.setAdapter(myClothesGridRecyclerViewAdapter);
+                        else {
+                            myClothesGridRecyclerViewAdapter.setmValues(result);
+                            recyclerView.setAdapter(myClothesGridRecyclerViewAdapter);
+                        }
 //                        String s = "";
 //                        for (Garment g: result) {
 //                            s += g + "\n";
@@ -148,6 +161,11 @@ public class ClothesGridFragment extends Fragment {
                 // causes the callbacks to be executed on the main (UI) thread
                 getContext().getMainExecutor()
         );
+    }
+
+    public void showNoClothesMsg(){
+        binding.textViewNoClothes.setVisibility(View.VISIBLE);
+        binding.list.setVisibility(View.GONE);
     }
 
     public static class OnClothesClicked implements View.OnClickListener {

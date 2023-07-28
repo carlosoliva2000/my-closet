@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
 import com.example.mycloset.data.daos.GarmentDao;
+import com.example.mycloset.data.daos.OutfitDao;
 import com.example.mycloset.data.entities.Garment;
 import com.example.mycloset.databinding.FragmentShowGarmentBinding;
 import com.example.mycloset.utils.FragmentUtils;
@@ -80,11 +81,17 @@ public class ShowGarmentFragment extends Fragment {
                 // TODO delete garment with ease...
                 AppDatabase db = AppDatabase.get(getContext());
                 GarmentDao garmentDao = db.garmentDao();
+                OutfitDao outfitDao = db.outfitDao();
 
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        garmentDao.delete(garment);
+                        garment.isActive = false;
+                        garmentDao.update(garment);
+//                        garmentDao.delete(garment);
+
+                        // Check if this garment is a outfit, if that's the case, delete it the reference
+                        outfitDao.deleteCrossRef(garment.garmentId);
                     }
                 }).start();
                 FragmentManager fragmentManager = getParentFragmentManager();

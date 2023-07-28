@@ -178,7 +178,8 @@ public class AddOutfitFragment extends Fragment {
                             db.outfitDao().insertAllCrossRef(outfitGarmentCrossRef);
                         }
 
-                        FragmentUtils.removeFragment(AddOutfitFragment.this);
+                        FragmentUtils.replaceFragment(AddOutfitFragment.this, OutfitsFragment.class);
+//                        FragmentUtils.removeFragment(AddOutfitFragment.this);
                     }
                 }).start();
             }

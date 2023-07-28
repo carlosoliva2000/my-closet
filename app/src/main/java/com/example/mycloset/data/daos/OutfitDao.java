@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import com.example.mycloset.data.entities.Outfit;
 import com.example.mycloset.data.entities.OutfitGarmentCrossRef;
@@ -21,10 +22,16 @@ public interface OutfitDao {
     @Insert
     List<Long> insertAllCrossRef(OutfitGarmentCrossRef... outfitGarmentCrossRefs);
 
+    @Update
+    void update(Outfit outfit);
+
     @Delete
     void delete(Outfit outfit);
 
-    @Query("SELECT * FROM Outfit")
+    @Query("DELETE FROM OutfitGarmentCrossRef WHERE garmentId = :idGarment")
+    void deleteCrossRef(long idGarment);
+
+    @Query("SELECT * FROM Outfit WHERE isActive")
     ListenableFuture<List<Outfit>> selectAll();
 
     @Query("SELECT * FROM Outfit WHERE outfitId=:id")

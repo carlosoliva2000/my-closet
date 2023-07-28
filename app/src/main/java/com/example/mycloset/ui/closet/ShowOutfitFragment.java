@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,36 @@ public class ShowOutfitFragment extends Fragment {
         binding = FragmentShowOutfitBinding.inflate(inflater, container, false);
         binding.carouselClothes.setLayoutManager(new CarouselLayoutManager());
         getObject();
+
+        binding.buttonDeleteOutfit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppDatabase db = AppDatabase.get(getContext());
+                OutfitDao outfitDao = db.outfitDao();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        outfit.isActive = false;
+                        outfitDao.update(outfit);
+//                        outfitDao.delete(outfit);
+                    }
+                }).start();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(((ViewGroup)ShowOutfitFragment.this.getView().getParent()).getId(), OutfitsFragment.class, null)
+                        .commit();
+                fragmentManager.popBackStack();
+            }
+        });
+
         return binding.getRoot();
     }
 

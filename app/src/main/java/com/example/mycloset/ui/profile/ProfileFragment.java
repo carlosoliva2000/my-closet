@@ -50,30 +50,30 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
 
-        AppDatabase db = AppDatabase.get(getContext());
-        GarmentDao garmentDao = db.garmentDao();
-
-        ListenableFuture<List<Garment>> listListenableFuture = garmentDao.selectAll();
-        Futures.addCallback(
-                listListenableFuture,
-                new FutureCallback<List<Garment>>() {
-                    public void onSuccess(List<Garment> result) {
-                        // handle success
-                        String s = "";
-                        for (Garment g: result) {
-                            s += g + "\n";
-                        }
-//                        result.forEach(t -> binding.textView7.setText(t.toString()));
-                        binding.textView7.setText(s);
-                    }
-
-                    public void onFailure(@NonNull Throwable thrown) {
-                        // handle failure
-                    }
-                },
-                // causes the callbacks to be executed on the main (UI) thread
-                getContext().getMainExecutor()
-        );
+//        AppDatabase db = AppDatabase.get(getContext());
+//        GarmentDao garmentDao = db.garmentDao();
+//
+//        ListenableFuture<List<Garment>> listListenableFuture = garmentDao.selectAll();
+//        Futures.addCallback(
+//                listListenableFuture,
+//                new FutureCallback<List<Garment>>() {
+//                    public void onSuccess(List<Garment> result) {
+//                        // handle success
+//                        String s = "";
+//                        for (Garment g: result) {
+//                            s += g + "\n";
+//                        }
+////                        result.forEach(t -> binding.textView7.setText(t.toString()));
+//                        binding.textView7.setText(s);
+//                    }
+//
+//                    public void onFailure(@NonNull Throwable thrown) {
+//                        // handle failure
+//                    }
+//                },
+//                // causes the callbacks to be executed on the main (UI) thread
+//                getContext().getMainExecutor()
+//        );
 
 
         return binding.getRoot();

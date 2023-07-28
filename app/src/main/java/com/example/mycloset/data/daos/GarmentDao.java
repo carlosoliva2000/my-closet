@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.mycloset.data.entities.Garment;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -20,10 +21,13 @@ public interface GarmentDao {
     @Insert
     List<Long> insertAll(Garment... garments);
 
+    @Update
+    void update(Garment garment);
+
     @Delete
     void delete(Garment garment);
 
-    @Query("SELECT * FROM Garment")
+    @Query("SELECT * FROM Garment WHERE isActive")
     ListenableFuture<List<Garment>> selectAll();
 
     @Query("SELECT * FROM Garment")
