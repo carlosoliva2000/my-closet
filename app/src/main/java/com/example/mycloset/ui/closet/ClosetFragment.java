@@ -64,11 +64,11 @@ public class ClosetFragment extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 //TODO: arreglar esto que está hardcodeado!!!
                 if (position == 0) {
-                    tab.setText("Clothes");
+                    tab.setText(getString(R.string.clothes));
                     tab.setIcon(R.drawable.ic_dashboard_black_24dp);
                 }
                 else if (position == 1) {
-                    tab.setText("Outfits");
+                    tab.setText(getString(R.string.outfits));
                     tab.setIcon(android.R.drawable.btn_star);
                 }
                 else

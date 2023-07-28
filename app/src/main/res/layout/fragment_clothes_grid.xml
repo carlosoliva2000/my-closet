@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="This seems a bit empty... :( \n\nAdd clothes with the floating button of the Wardrobe tab"
+        android:text="@string/this_seems_a_bit_empty_n_nadd_clothes_with_the_floating_button_of_the_wardrobe_tab"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

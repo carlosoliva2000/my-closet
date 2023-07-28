@@ -25,14 +25,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_dashboard_black_24dp"
-            android:text="Clothes" />
+            android:text="@string/clothes" />
 
         <com.google.android.material.tabs.TabItem
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@android:drawable/btn_star"
-            android:text="Outfits" />
+            android:text="@string/outfits" />
 
     </com.google.android.material.tabs.TabLayout>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Closet</string>
+    <string name="app_name">MyCloset</string>
     <string name="title_home" translatable="false">Home</string>
     <string name="title_calendar">Calendar</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -110,14 +110,47 @@
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
+    <string name="sync_title" translatable="false">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_closet">Closet</string>
     <string name="title_profile">Profile</string>
+    <string name="greetings">"Hello, "</string>
+    <string name="outfit_registered">Good choice!</string>
+    <string name="coming_soon">Coming soon...</string>
+    <string name="sign_up_no_name">Write your name in the text field, please</string>
+    <string name="sign_up_name_alike">That doesn\'t look like a name</string>
+    <string name="welcome_to">WELCOME TO</string>
+    <string name="your_first_time_sign_up_here">Your first time? Sign up here</string>
+    <string name="what_s_your_name">What\'s your name?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="e_g_nike_adidas_etc">e.g.: Nike, Adidas, etc</string>
+    <string name="e_g_t_shirt_trousers_etc">e.g.: T-Shirt, trousers, etc.</string>
+    <string name="brand">Brand:</string>
+    <string name="category">Category:</string>
+    <string name="image">Image:</string>
+    <string name="add_a_garment">ADD A GARMENT</string>
+    <string name="create_a_new_outfit">CREATE A NEW OUTFIT</string>
+    <string name="select_some_clothes">Select some clothes</string>
+    <string name="discard">Discard</string>
+    <string name="save">Save</string>
+    <string name="add_garment">+ Add garment</string>
+    <string name="name">Name:</string>
+    <string name="add_a_picture_of_the_outfit_on_a_surface_or_wearing_it">Add a picture of the outfit, on a surface or wearing it yourself!</string>
+    <string name="what_are_you_wearing_right_now">What are you wearing right now?</string>
+    <string name="select_outfit">Select outfit</string>
+    <string name="nclick_on_the_button_below_to_register_the_outfit_you_are_currently_wearing_n">\nClick on the button below to register the outfit you are currently wearing\n</string>
+    <string name="more_features_to_come">More features to come!</string>
+    <string name="nplan_events_and_see_the_outfits_you_wore_each_day_on_the_calendar_recommendations_based_on_your_usage_pattern_outfit_suggestions_customizable_profile_n">\nPlan events and see the outfits you wore each day on the calendar, recommendations based on your usage pattern, outfit suggestions, customizable profile...\n</string>
+    <string name="x_delete">X Delete</string>
+    <string name="composed_by">Composed by</string>
+    <string name="clothes">Clothes</string>
+    <string name="outfits" translatable="false">Outfits</string>
+    <string name="this_seems_a_bit_empty_n_nadd_clothes_with_the_floating_button_of_the_wardrobe_tab">This seems a bit empty... :(\\n\\nAdd clothes using the floating button of the Closet tab</string>
+    <string name="save_your_favourite_combinations_of_clothes_in_this_tab">Save your favourite combinations of clothes in this tab!</string>
 </resources>

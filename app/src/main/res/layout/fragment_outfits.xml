@@ -40,7 +40,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:gravity="center"
-                android:text="Save your favourite combinations of clothes in this tab!"
+                android:text="@string/save_your_favourite_combinations_of_clothes_in_this_tab"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

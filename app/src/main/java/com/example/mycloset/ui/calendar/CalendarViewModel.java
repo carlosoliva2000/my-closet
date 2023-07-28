@@ -10,7 +10,7 @@ public class CalendarViewModel extends ViewModel {
 
     public CalendarViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Coming soon...");
+        mText.setValue("Próximamente...");
     }
 
     public LiveData<String> getText() {

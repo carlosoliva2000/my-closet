@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
     private Outfit outfitNow;
 
     private boolean canShowAccounts;
-    private boolean firstTime = true;
+    private int timesEntered = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
 
                             }
                         }).start();
-                        Toast.makeText(getContext(), "Good choice!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.outfit_registered), Toast.LENGTH_SHORT).show();
                     }
 
                     public void onFailure(@NonNull Throwable thrown) {
@@ -139,11 +139,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (firstTime) {
-            firstTime = false;
-            Log.e("EEEEE", "IAUSDOIASDSDADUADUDUADS");
+        if (timesEntered++ < 2) {
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MY_PREFERENCES", Context.MODE_PRIVATE);
-            binding.textViewGreetings.setText("Hello, " + sharedPreferences.getString("USERNAME", "... I don't know your name :("));
+            binding.textViewGreetings.setText( getString(R.string.greetings) + sharedPreferences.getString("USERNAME", "... I don't know your name :("));
         }
     }
 

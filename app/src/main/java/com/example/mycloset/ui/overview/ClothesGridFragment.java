@@ -101,7 +101,7 @@ public class ClothesGridFragment extends Fragment {
 
         // Set the adapter
         if (true /*view instanceof RecyclerView*/) {
-            Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
+//            Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
 //            view = view.findViewById(R.id.list);
 //            Context context = view.getContext();
             Context context = getContext();
@@ -131,7 +131,7 @@ public class ClothesGridFragment extends Fragment {
         else
             listListenableFuture = garmentDao.selectCategory(category.toUpperCase());
 
-        Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
+//        Log.e("ERRORASADASDADDASDSDDDADAD", "DEIOISFISOFUSODFUSDFDdffsfsdsdSOS");
         Futures.addCallback(
                 listListenableFuture,
                 new FutureCallback<List<Garment>>() {

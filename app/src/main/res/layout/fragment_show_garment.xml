@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:text="Brand:"
+            android:text="@string/brand"
             app:layout_constraintStart_toStartOf="@+id/imageView_show_garment"
             app:layout_constraintTop_toBottomOf="@+id/imageView_show_garment" />
 
@@ -52,7 +52,6 @@
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Category:"
+            android:text="@string/category"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -74,7 +73,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -88,7 +86,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="8dp"
             android:backgroundTint="@android:color/holo_red_light"
-            android:text="X Delete"
+            android:text="@string/x_delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

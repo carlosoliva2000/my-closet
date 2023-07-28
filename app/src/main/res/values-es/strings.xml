@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MiArmario</string>
+    <string name="title_calendar">Calendario</string>
+    <string name="welcome">Bienvenido!</string>
+    <string name="title_closet">Armario</string>
+    <string name="title_profile">Perfil</string>
+    <string name="greetings">"Hola, "</string>
+    <string name="outfit_registered">¡Buena elección!</string>
+    <string name="coming_soon">Próximamente...</string>
+    <string name="sign_up_no_name">Escribe tu nombre en el recuadro, por favor</string>
+    <string name="sign_up_name_alike">Eso no parece un nombre</string>
+    <string name="welcome_to">BIENVENIDO A</string>
+    <string name="your_first_time_sign_up_here">¿Tu primera vez? Regístrate aquí</string>
+    <string name="what_s_your_name">¿Cómo te llamas?</string>
+    <string name="sign_up">Registrarse</string>
+    <string name="e_g_nike_adidas_etc">p.e.: Nike, Adidas, etc</string>
+    <string name="e_g_t_shirt_trousers_etc">p.e.: T-Shirt, trousers, etc.</string>
+    <string name="brand">Marca:</string>
+    <string name="category">Categoría:</string>
+    <string name="image">Imagen:</string>
+    <string name="add_a_garment">AÑADE UNA PRENDA</string>
+    <string name="create_a_new_outfit">CREA UN NUEVO OUTFIT</string>
+    <string name="select_some_clothes">Selecciona algunas prendas</string>
+    <string name="discard">Descartar</string>
+    <string name="save">Guardar</string>
+    <string name="add_garment">+ Añadir prenda</string>
+    <string name="name">Nombre:</string>
+    <string name="add_a_picture_of_the_outfit_on_a_surface_or_wearing_it">Añade una foto del outfit, ¡encima de una superficie o llevándolo tú mismo!</string>
+    <string name="what_are_you_wearing_right_now">¿Qué llevas puesto ahora mismo?</string>
+    <string name="select_outfit">Selecciona un outfit</string>
+    <string name="nclick_on_the_button_below_to_register_the_outfit_you_are_currently_wearing_n">Haz click en el botón de abajo para registrar el outfit que llevas ahora</string>
+    <string name="more_features_to_come">¡Más funciones próximamente!</string>
+    <string name="nplan_events_and_see_the_outfits_you_wore_each_day_on_the_calendar_recommendations_based_on_your_usage_pattern_outfit_suggestions_customizable_profile_n">Planea eventos y mira los outfits que llevaste cada día en el calendario, recomendaciones basadas en tu patrón de uso, sugerencias de outfits, perfil personalizable...</string>
+    <string name="x_delete">X Eliminar</string>
+    <string name="composed_by">Compuesto por</string>
+    <string name="clothes">Ropa</string>
+    <string name="this_seems_a_bit_empty_n_nadd_clothes_with_the_floating_button_of_the_wardrobe_tab">Esto parece que está vacío... :(\n\nAñade ropa utilizando el botón flotante de la pestaña Armario</string>
+    <string name="save_your_favourite_combinations_of_clothes_in_this_tab">¡Guarda tus combinaciones favoritas de ropa en esta pestaña!</string>
+</resources>

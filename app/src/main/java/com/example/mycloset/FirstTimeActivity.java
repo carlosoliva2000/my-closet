@@ -36,10 +36,10 @@ public class FirstTimeActivity extends AppCompatActivity {
 
     private void register(String name) {
         if (name.isEmpty() || name.isBlank()) {
-            Toast.makeText(this, "Write your name in the text field, please", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.sign_up_no_name), Toast.LENGTH_SHORT).show();
         }
         else if(name.length() < 2) {
-            Toast.makeText(this, "That doesn't look like a name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.sign_up_name_alike), Toast.LENGTH_SHORT).show();
         }
         else {
             SharedPreferences sharedPreferences = getSharedPreferences("MY_PREFERENCES", MODE_PRIVATE);

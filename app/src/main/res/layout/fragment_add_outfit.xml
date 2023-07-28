@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="CREATE A NEW OUTFIT"
+            android:text="@string/create_a_new_outfit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
-            android:text="Select some clothes"
+            android:text="@string/select_some_clothes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.19"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Name:"
+            android:text="@string/name"
             app:layout_constraintEnd_toStartOf="@+id/editText_outfit_name"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +86,12 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Add a picture of the outfit, on a surface or wearing it!"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/add_a_picture_of_the_outfit_on_a_surface_or_wearing_it"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +112,7 @@
             android:id="@+id/button_add_garment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ Add garment"
+            android:text="@string/add_garment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carousel_recycler_view" />
@@ -119,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Save"
+            android:text="@string/save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_discard_outfit"
             app:layout_constraintTop_toBottomOf="@id/imageView_outfit_picture" />
@@ -130,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:backgroundTint="@android:color/holo_red_light"
-            android:text="Discard"
+            android:text="@string/discard"
             app:layout_constraintEnd_toStartOf="@+id/button_save_outfit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_outfit_picture" />
