@@ -126,10 +126,11 @@ public class ShowGarmentFragment extends Fragment {
                     public void onSuccess(Garment result) {
                         // handle success
                         garment = result;
-                        binding.textViewGarmentFullName.setText(result.category+" "+result.brand);
+                        binding.textViewGarmentFullName.setText(result.getFullString());
                         binding.imageViewShowGarment.setImageURI(result.uri);
                         binding.textViewShowBrand.setText(result.brand);
                         binding.textViewShowCategory.setText(result.category);
+                        binding.textViewColorsShow.setText(result.colors);
                     }
 
                     public void onFailure(@NonNull Throwable thrown) {

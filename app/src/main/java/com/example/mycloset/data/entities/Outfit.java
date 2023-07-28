@@ -11,6 +11,7 @@ import androidx.room.Relation;
 
 import org.checkerframework.checker.units.qual.C;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,9 @@ public class Outfit {
     @ColumnInfo(defaultValue = "true")
     public boolean isActive = true;
 
+    @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
+    public Date date = new Date();
+
 //    public Outfit() {
 //
 //    }
@@ -34,6 +38,10 @@ public class Outfit {
 //        this.name = name;
 //        this.uri = uri;
 //    }
+
+    public String getFullString(){
+        return name;
+    }
 
     @Override
     public String toString() {

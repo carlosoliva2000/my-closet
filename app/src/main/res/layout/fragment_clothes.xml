@@ -21,7 +21,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Ver todo"
+                        android:text="@string/show_all"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -113,7 +113,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_pantalones"
+                android:id="@+id/card_sweaters"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -122,12 +122,12 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="PANTALON"
+                android:tag="@string/sweaters_sing"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_sudaderas"
+                app:layout_constraintStart_toEndOf="@+id/card_hoodies"
                 app:layout_constraintTop_toBottomOf="@+id/card_todo"
                 app:layout_constraintVertical_bias="0.0">
 
@@ -149,7 +149,7 @@
                         android:scaleType="centerCrop"
                         app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                        app:srcCompat="@drawable/bermuda" />
+                        app:srcCompat="@drawable/jersey" />
 
                     <View
                         android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Pantalones"
+                        android:text="@string/sweaters"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -200,7 +200,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_camisetas"
+                android:id="@+id/card_tshirts"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -209,10 +209,10 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="CAMISETA"
+                android:tag="@string/t_shirts_sing"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/card_sudaderas"
+                app:layout_constraintEnd_toStartOf="@+id/card_hoodies"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_todo"
@@ -247,7 +247,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Camisetas"
+                        android:text="@string/t_shirts"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -287,20 +287,21 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_sudaderas"
+                android:id="@+id/card_hoodies"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="SUDADERA"
+                android:tag="@string/hoodies_sing"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/card_pantalones"
+                app:layout_constraintEnd_toStartOf="@+id/card_sweaters"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_camisetas"
+                app:layout_constraintStart_toEndOf="@+id/card_tshirts"
                 app:layout_constraintTop_toBottomOf="@+id/card_todo"
                 app:layout_constraintVertical_bias="0.0">
 
@@ -333,7 +334,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Sudaderas"
+                        android:text="@string/hoodies"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -373,7 +374,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_zapatillas"
+                android:id="@+id/card_polos"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -382,13 +383,13 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="ZAPATILLAS"
+                android:tag="@string/polos_sing"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/card_chaquetas"
+                app:layout_constraintEnd_toStartOf="@+id/card_shirts"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_camisetas"
+                app:layout_constraintTop_toBottomOf="@+id/card_tshirts"
                 app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
@@ -409,7 +410,7 @@
                         android:scaleType="centerCrop"
                         app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                        app:srcCompat="@drawable/zapatillas" />
+                        app:srcCompat="@drawable/polo" />
 
                     <View
                         android:layout_width="match_parent"
@@ -420,7 +421,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Zapatillas"
+                        android:text="@string/polos"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -460,7 +461,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_gorras"
+                android:id="@+id/card_jackets"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -469,99 +470,13 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="GORRAS"
+                android:tag="@string/jackets_sing"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_chaquetas"
-                app:layout_constraintTop_toBottomOf="@+id/card_pantalones"
-                app:layout_constraintVertical_bias="0.0">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Media -->
-                    <!--            <ImageView-->
-                    <!--                android:layout_width="match_parent"-->
-                    <!--                android:layout_height="194dp"-->
-                    <!--                android:scaleType="centerCrop"-->
-                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="96dp"
-                        android:scaleType="centerCrop"
-                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                        app:srcCompat="@drawable/gorra" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="?android:attr/listDivider" />
-
-                    <TextView
-                        style="@style/MyCard"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Gorras"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-                    <!--            <LinearLayout-->
-                    <!--                android:layout_width="match_parent"-->
-                    <!--                android:layout_height="wrap_content"-->
-                    <!--                android:orientation="vertical"-->
-                    <!--                android:padding="16dp">-->
-
-                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
-                    <!--                <TextView-->
-                    <!--                    android:layout_width="wrap_content"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:text="Sudaderas"-->
-                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
-
-                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
-
-                    <!--            </LinearLayout>-->
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_chaquetas"
-                android:layout_width="0dp"
-                android:layout_height="128dp"
-                android:layout_margin="8dp"
-                android:layout_marginStart="16dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                android:tag="CHAQUETAS"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/card_gorras"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_zapatillas"
-                app:layout_constraintTop_toBottomOf="@+id/card_sudaderas"
+                app:layout_constraintStart_toEndOf="@+id/card_shirts"
+                app:layout_constraintTop_toBottomOf="@+id/card_sweaters"
                 app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
@@ -593,7 +508,7 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Chaquetas"
+                        android:text="@string/jackets"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -633,91 +548,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_banadores"
-                android:layout_width="0dp"
-                android:layout_height="128dp"
-                android:layout_margin="8dp"
-                android:layout_marginTop="16dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                android:tag="BAÑADORES"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toStartOf="@+id/card_filler"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_chanclas"
-                app:layout_constraintTop_toBottomOf="@+id/card_chaquetas">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!-- Media -->
-                    <!--            <ImageView-->
-                    <!--                android:layout_width="match_parent"-->
-                    <!--                android:layout_height="194dp"-->
-                    <!--                android:scaleType="centerCrop"-->
-                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="96dp"
-                        android:scaleType="centerCrop"
-                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                        app:srcCompat="@drawable/banador" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="?android:attr/listDivider" />
-
-                    <TextView
-                        style="@style/MyCard"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Bañadores"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-                    <!--            <LinearLayout-->
-                    <!--                android:layout_width="match_parent"-->
-                    <!--                android:layout_height="wrap_content"-->
-                    <!--                android:orientation="vertical"-->
-                    <!--                android:padding="16dp">-->
-
-                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
-                    <!--                <TextView-->
-                    <!--                    android:layout_width="wrap_content"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:text="Sudaderas"-->
-                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
-
-                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
-
-                    <!--            </LinearLayout>-->
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_chanclas"
+                android:id="@+id/card_shirts"
                 android:layout_width="0dp"
                 android:layout_height="128dp"
                 android:layout_margin="8dp"
@@ -726,12 +557,14 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="CHANCLAS"
+                android:tag="@string/shirts_sing"
                 app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toStartOf="@+id/card_banadores"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_jackets"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_zapatillas">
+                app:layout_constraintStart_toEndOf="@+id/card_polos"
+                app:layout_constraintTop_toBottomOf="@+id/card_hoodies"
+                app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -751,7 +584,7 @@
                         android:scaleType="centerCrop"
                         app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
-                        app:srcCompat="@drawable/chanclas" />
+                        app:srcCompat="@drawable/camisa" />
 
                     <View
                         android:layout_width="match_parent"
@@ -762,7 +595,181 @@
                         style="@style/MyCard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Chanclas"
+                        android:text="@string/shirts"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_coats"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/coats_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_pants"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_polos"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/abrigo" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/coats"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_shorts"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/shorts_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_pants"
+                app:layout_constraintTop_toBottomOf="@+id/card_jackets"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/bermuda" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/shorts"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -816,8 +823,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/card_banadores"
-                app:layout_constraintTop_toBottomOf="@+id/card_gorras"
+                app:layout_constraintStart_toEndOf="@+id/card_bikinis"
+                app:layout_constraintTop_toBottomOf="@+id/card_hats"
                 app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
@@ -884,6 +891,543 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_pants"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/pants_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_shorts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_coats"
+                app:layout_constraintTop_toBottomOf="@+id/card_shirts"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/cargos" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/pants"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_shoes"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/shoes_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_flipflops"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_coats"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/zapatillas" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/shoes"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_flipflops"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/flip_flops_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_hats"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_shoes"
+                app:layout_constraintTop_toBottomOf="@+id/card_pants"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/chanclas" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/flip_flops"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_bikinis"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/bikinis_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_filler"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_swimsuits"
+                app:layout_constraintTop_toBottomOf="@+id/card_flipflops"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/bikini" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/bikinis"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_swimsuits"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/swimsuits_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_bikinis"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_shoes"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/banador" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/swimsuits"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_hats"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:tag="@string/hats_sing"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_flipflops"
+                app:layout_constraintTop_toBottomOf="@+id/card_shorts"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <!--            <ImageView-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="194dp"-->
+                    <!--                android:scaleType="centerCrop"-->
+                    <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                        app:srcCompat="@drawable/gorra" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        style="@style/MyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/hats"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <!--            <LinearLayout-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:orientation="vertical"-->
+                    <!--                android:padding="16dp">-->
+
+                    <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Sudaderas"-->
+                    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                    <!--            </LinearLayout>-->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--            <com.google.android.material.card.MaterialCardView-->
+            <!--                android:id="@+id/card_chaquetas1"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="128dp"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:checkable="true"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                android:tag="CHAQUETAS"-->
+            <!--                app:cardPreventCornerOverlap="false">-->
+
+            <!--            </com.google.android.material.card.MaterialCardView>-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

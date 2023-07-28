@@ -47,7 +47,7 @@ public class ClothesCarouselRecyclerViewAdapter extends RecyclerView.Adapter<Clo
         holder.mItem = garment;
         try {
             holder.mImageView.setImageURI(garment.uri);
-            holder.mContent.setText(garment.brand + " " + garment.category);
+            holder.mContent.setText(garment.getFullString());
         }
         catch (Exception e) {
 

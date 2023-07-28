@@ -1,5 +1,7 @@
 package com.example.mycloset.ui.closet;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,13 +20,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
 import com.example.mycloset.data.entities.Garment;
 import com.example.mycloset.databinding.FragmentAddGarmentBinding;
-
-import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +36,10 @@ public class AddGarmentFragment extends Fragment {
 
     private FragmentAddGarmentBinding binding;
     private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
+    private String category;
+    private int checkedIndex;
+
+    private String[] categoriesHumanFriendly;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,13 +66,89 @@ public class AddGarmentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentAddGarmentBinding.inflate(inflater, container, false);
+        Context context = getContext();
+
+        categoriesHumanFriendly = new String[]{
+                getString(R.string.t_shirts_sing),
+                getString(R.string.hoodies_sing),
+                getString(R.string.sweaters_sing),
+                getString(R.string.polos_sing),
+                getString(R.string.shirts_sing),
+                getString(R.string.jackets_sing),
+                getString(R.string.coats_sing),
+                getString(R.string.pants_sing),
+                getString(R.string.shorts_sing),
+                getString(R.string.shoes_sing),
+                getString(R.string.flip_flops_sing),
+                getString(R.string.hats_sing),
+                getString(R.string.swimsuits_sing),
+                getString(R.string.bikinis_sing)
+        };
+
+//        binding.editTextBrand.requestFocus();
+
+        binding.buttonCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // setup the alert builder
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Choose an animal");
+
+                // add a radio button list
+                String[] categories = {"TSHIRTS", "HOODIES", "SWEATERS", "POLOS", "SHIRTS", "JACKETS",
+                "COATS", "PANTS", "SHORTS", "SHOES", "FLIPFLOPS", "HATS", "SWIMSUITS", "BIKINIS"};
+
+                int checkedItem = 0;
+                builder.setSingleChoiceItems(categoriesHumanFriendly, checkedItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // user checked an item
+                        checkedIndex = which;
+                    }
+                });
+
+                // add OK and Cancel buttons
+                builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // user clicked OK
+                        category = categories[checkedIndex];
+                        binding.buttonCategory.setText(categoriesHumanFriendly[checkedIndex]);
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.cancel), null);
+
+                // create and show the alert dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
 
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(binding.buttonCategory.getText().toString().equals(getString(R.string.select))) {
+                    Toast.makeText(getContext(), "Falta establecer la categoría", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(binding.editTextBrand.getText().toString().isEmpty() || binding.editTextBrand.getText().toString().isBlank()) {
+                    Toast.makeText(getContext(), "Falta establecer la marca", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(binding.imageViewGarment.getTag() == null){
+                    Toast.makeText(getContext(), "Falta poner una foto", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Garment garment = new Garment();
+                String name = binding.editTextName.getText().toString();
+                if (!name.isEmpty() && !name.isBlank())
+                    garment.name = name;
                 garment.brand = binding.editTextBrand.getText().toString();
-                garment.category = binding.editTextCategory.getText().toString();
+                garment.category = binding.buttonCategory.getText().toString();
+                String colors = binding.editTextColors.getText().toString();
+                if (!colors.isEmpty() && !colors.isBlank())
+                    garment.colors = binding.editTextColors.getText().toString();
                 garment.uri = (Uri) binding.imageViewGarment.getTag();
 
                 AppDatabase db = AppDatabase.get(view.getContext());

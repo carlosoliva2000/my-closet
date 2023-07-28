@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
         super.onResume();
         if (timesEntered++ < 2) {
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MY_PREFERENCES", Context.MODE_PRIVATE);
-            binding.textViewGreetings.setText( getString(R.string.greetings) + sharedPreferences.getString("USERNAME", "... I don't know your name :("));
+            binding.textViewGreetings.setText("Hola, " + sharedPreferences.getString("USERNAME", "... I don't know your name :("));
         }
     }
 

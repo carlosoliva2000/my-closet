@@ -70,14 +70,20 @@ public class ClothesFragment extends Fragment {
                 replaceFragment(ClothesGridFragment.newInstance("ALL", 3, "READ"));
             }
         });
-        binding.cardBanadores.setOnClickListener(cardListener);
-        binding.cardCamisetas.setOnClickListener(cardListener);
-        binding.cardChanclas.setOnClickListener(cardListener);
-        binding.cardChaquetas.setOnClickListener(cardListener);
-        binding.cardGorras.setOnClickListener(cardListener);
-        binding.cardPantalones.setOnClickListener(cardListener);
-        binding.cardSudaderas.setOnClickListener(cardListener);
-        binding.cardZapatillas.setOnClickListener(cardListener);
+        binding.cardBikinis.setOnClickListener(cardListener);
+        binding.cardCoats.setOnClickListener(cardListener);
+        binding.cardFlipflops.setOnClickListener(cardListener);
+        binding.cardHats.setOnClickListener(cardListener);
+        binding.cardHoodies.setOnClickListener(cardListener);
+        binding.cardJackets.setOnClickListener(cardListener);
+        binding.cardPants.setOnClickListener(cardListener);
+        binding.cardPolos.setOnClickListener(cardListener);
+        binding.cardShirts.setOnClickListener(cardListener);
+        binding.cardShoes.setOnClickListener(cardListener);
+        binding.cardShorts.setOnClickListener(cardListener);
+        binding.cardSweaters.setOnClickListener(cardListener);
+        binding.cardSwimsuits.setOnClickListener(cardListener);
+        binding.cardTshirts.setOnClickListener(cardListener);
 
         binding.fabClothes.setOnClickListener(new View.OnClickListener() {
             @Override

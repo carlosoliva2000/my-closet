@@ -51,7 +51,7 @@ public class ClothesSelectedRecyclerViewAdapter extends RecyclerView.Adapter<Clo
         holder.mItem = garment;
         try {
             holder.mImageView.setImageURI(garment.uri);
-            holder.mContent.setText(garment.brand + " " + garment.category);
+            holder.mContent.setText(garment.getFullString());
             holder.mButton.setOnClickListener(new AddOutfitFragment.OnDeleteGarmentOnSelection(garment, recyclerView, this, mValues, recyclerView));
 //            holder.mButton.setOnClickListener(new View.OnClickListener() {
 //                @Override

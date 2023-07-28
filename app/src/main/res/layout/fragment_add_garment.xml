@@ -2,11 +2,11 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".ui.closet.AddGarmentFragment"
-    style="@style/MyBackground">
+    tools:context=".ui.closet.AddGarmentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextBrand"
+            android:id="@+id/editText_brand"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:ems="10"
@@ -32,81 +32,135 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewBrand"
-            app:layout_constraintTop_toTopOf="@+id/textViewBrand" />
-
-        <EditText
-            android:id="@+id/editTextCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="@string/e_g_t_shirt_trousers_etc"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewCategory"
-            app:layout_constraintTop_toTopOf="@+id/textViewCategory" />
+            app:layout_constraintStart_toEndOf="@+id/textView_brand"
+            app:layout_constraintTop_toTopOf="@+id/textView_brand" />
 
         <TextView
-            android:id="@+id/textViewBrand"
+            android:id="@+id/textView_category"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:text="@string/brand"
+            android:text="@string/category"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/editTextBrand"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView_brand"
+            app:layout_constraintStart_toStartOf="@+id/textView_brand"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
             app:layout_constraintVertical_bias="0.100000024" />
 
         <TextView
-            android:id="@+id/textViewCategory"
+            android:id="@+id/textView_brand"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:gravity="center_vertical"
-            android:text="@string/category"
-            app:layout_constraintEnd_toStartOf="@+id/editTextCategory"
+            android:text="@string/brand"
+            app:layout_constraintEnd_toStartOf="@+id/editText_brand"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBrand" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_category" />
 
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_name"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <!--        <-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="96dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            app:shapeAppearance="?attr/shapeAppearanceMediumComponent"-->
+        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"-->
+        <!--            app:srcCompat="@drawable/armario" />-->
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
             android:text="@string/image"
-            app:layout_constraintStart_toStartOf="@+id/textViewCategory"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCategory" />
-
-<!--        <-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="96dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            app:shapeAppearance="?attr/shapeAppearanceMediumComponent"-->
-<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"-->
-<!--            app:srcCompat="@drawable/armario" />-->
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewGarment"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewGarment"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewGarment" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewGarment"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextCategory"
-            app:layout_constraintStart_toStartOf="@+id/editTextCategory"
-            app:layout_constraintTop_toTopOf="@+id/textView8"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/editText_colors"
+            app:srcCompat="@android:drawable/ic_menu_add"
+            app:tint="@color/carne"
+            app:tintMode="multiply" />
+
+        <TextView
+            android:id="@+id/textView_colors"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/colors"
+            app:layout_constraintEnd_toStartOf="@+id/editText_colors"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_brand" />
+
+        <EditText
+            android:id="@+id/editText_colors"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="@string/separated_by_commas"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView_colors"
+            app:layout_constraintTop_toTopOf="@+id/textView_colors" />
+
+        <Button
+            android:id="@+id/button_category"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/select"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_category"
+            app:layout_constraintEnd_toEndOf="@+id/editText_brand"
+            app:layout_constraintStart_toStartOf="@+id/editText_brand"
+            app:layout_constraintTop_toTopOf="@+id/textView_category" />
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            app:layout_constraintEnd_toStartOf="@+id/editText_name"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewGarment" />
+
+        <EditText
+            android:id="@+id/editText_name"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="@string/hint_optional_name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView_name"
+            app:layout_constraintTop_toTopOf="@+id/textView_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

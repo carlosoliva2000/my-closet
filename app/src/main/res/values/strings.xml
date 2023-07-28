@@ -140,7 +140,7 @@
     <string name="discard">Discard</string>
     <string name="save">Save</string>
     <string name="add_garment">+ Add garment</string>
-    <string name="name">Name:</string>
+    <string name="name">Name (Optional):</string>
     <string name="add_a_picture_of_the_outfit_on_a_surface_or_wearing_it">Add a picture of the outfit, on a surface or wearing it yourself!</string>
     <string name="what_are_you_wearing_right_now">What are you wearing right now?</string>
     <string name="select_outfit">Select outfit</string>
@@ -153,4 +153,40 @@
     <string name="outfits" translatable="false">Outfits</string>
     <string name="this_seems_a_bit_empty_n_nadd_clothes_with_the_floating_button_of_the_wardrobe_tab">This seems a bit empty... :(\\n\\nAdd clothes using the floating button of the Closet tab</string>
     <string name="save_your_favourite_combinations_of_clothes_in_this_tab">Save your favourite combinations of clothes in this tab!</string>
+    <string name="t_shirts">T-Shirts</string>
+    <string name="show_all">Show all</string>
+    <string name="sweaters">Sweaters</string>
+    <string name="hoodies">Hoodies</string>
+    <string name="polos">Polos</string>
+    <string name="jackets">Jackets</string>
+    <string name="shirts">Shirts</string>
+    <string name="coats">Coats</string>
+    <string name="shorts" translatable="false">Shorts</string>
+    <string name="pants">Pants</string>
+    <string name="shoes">Shoes</string>
+    <string name="flip_flops">Flip flops</string>
+    <string name="bikinis">Bikinis</string>
+    <string name="swimsuits">Swimsuits</string>
+    <string name="hats">Hats</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="separated_by_commas">Separated by commas</string>
+    <string name="hint_optional_name">An optional name</string>
+    <string name="colors">Colors (optional):</string>
+    <string name="select">Select</string>
+    <string name="t_shirts_sing">T-Shirt</string>
+    <string name="hoodies_sing">Hoodie</string>
+    <string name="sweaters_sing">Sweater</string>
+    <string name="polos_sing">Polo</string>
+    <string name="shirts_sing">Shirt</string>
+    <string name="jackets_sing">Jacket</string>
+    <string name="coats_sing">Coat</string>
+    <string name="pants_sing">Pants</string>
+    <string name="shorts_sing">Shorts</string>
+    <string name="shoes_sing">Shoes</string>
+    <string name="flip_flops_sing">Flip flops</string>
+    <string name="hats_sing">Hat</string>
+    <string name="swimsuits_sing">Swimsuit</string>
+    <string name="bikinis_sing">Bikini</string>
+    <string name="name_outfit">Name:</string>
 </resources>

@@ -28,6 +28,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
@@ -155,6 +156,19 @@ public class AddOutfitFragment extends Fragment {
         binding.buttonSaveOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (clothes.size() < 2) {
+                    Toast.makeText(getContext(), "Añade al menos 2 prendas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String name = binding.editTextOutfitName.getText().toString();
+                if (name.isEmpty() || name.isBlank()){
+                    Toast.makeText(getContext(), "Falta añadir un nombre al outfit", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (binding.imageViewOutfitPicture.getTag() == null){
+                    Toast.makeText(getContext(), "Falta una foto, puedes hacerte una con el outfit y añadirla", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

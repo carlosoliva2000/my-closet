@@ -75,7 +75,7 @@ public class MyClothesGridRecyclerViewAdapter extends RecyclerView.Adapter<MyClo
 //            });
             holder.mCard.setOnClickListener(new ClothesGridFragment.OnClothesClicked(garment, fragment));
             holder.mImageView.setImageURI(garment.uri);
-            holder.mContent.setText(garment.brand + " " + garment.category);
+            holder.mContent.setText(garment.getFullString());
         }
         catch (Exception e) {
 
