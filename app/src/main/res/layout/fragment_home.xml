@@ -1,42 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Hello, Carlos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_todo"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_margin="8dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Media -->
+                <!--            <ImageView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="194dp"-->
+                <!--                android:scaleType="centerCrop"-->
+                <!--                app:srcCompat="@drawable/baseline_calendar_today_24" />-->
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toTopOf="@+id/view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media"
+                    app:srcCompat="@drawable/lots_of_clothes" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toTopOf="@+id/textView18" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    style="@style/MyCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="What are you wearing right now?"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toTopOf="@+id/textView15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_register_outfit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="Select outfit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    style="@style/MyCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="\nClick on the button below to register the outfit you are currently wearing\n"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    app:layout_constraintBottom_toTopOf="@+id/button_register_outfit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:orientation="vertical"-->
+                <!--                android:padding="16dp">-->
+
+                <!--                &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="Sudaderas"-->
+                <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />-->
+
+                <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_marginTop="8dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:text="Titulo secundario"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                <!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:text="Texto de soporte"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:textAppearance="@style/TextAppearance.AppCompat.Small"&ndash;&gt;-->
+                <!--&lt;!&ndash;                    android:textColor="?android:attr/textColorSecondary" />&ndash;&gt;-->
+
+                <!--            </LinearLayout>-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

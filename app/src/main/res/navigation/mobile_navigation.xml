@@ -29,7 +29,7 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
-<!--    <fragment-->
+    <!--    <fragment-->
 <!--        android:id="@+id/navigation_scroll"-->
 <!--        android:brand="com.example.mycloset.ui.scroll.ScrollFragment"-->
 <!--        android:label="Scroll"-->

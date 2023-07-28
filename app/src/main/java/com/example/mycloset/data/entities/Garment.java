@@ -2,6 +2,7 @@ package com.example.mycloset.data.entities;
 
 import android.net.Uri;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,14 +14,17 @@ public class Garment {
     public String brand;
     public String category;
     public Uri uri;
+    @ColumnInfo(defaultValue = "true")
+    public boolean isActive = true;
 
     @Override
     public String toString() {
         return "Garment{" +
-                "id=" + garmentId +
+                "garmentId=" + garmentId +
                 ", brand='" + brand + '\'' +
                 ", category='" + category + '\'' +
                 ", uri=" + uri +
+                ", isActive=" + isActive +
                 '}';
     }
 }

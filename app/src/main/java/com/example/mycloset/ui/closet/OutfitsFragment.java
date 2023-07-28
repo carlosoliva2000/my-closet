@@ -1,6 +1,5 @@
 package com.example.mycloset.ui.closet;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,12 +15,10 @@ import android.view.ViewGroup;
 
 import com.example.mycloset.R;
 import com.example.mycloset.data.AppDatabase;
-import com.example.mycloset.data.entities.Garment;
 import com.example.mycloset.data.entities.Outfit;
 import com.example.mycloset.data.entities.OutfitGarmentCrossRef;
 import com.example.mycloset.data.entities.OutfitWithClothes;
 import com.example.mycloset.databinding.FragmentOutfitsBinding;
-import com.example.mycloset.ui.overview.ClothesGridFragment;
 import com.example.mycloset.ui.overview.OutfitsGridRecyclerViewAdapter;
 import com.example.mycloset.utils.FragmentUtils;
 import com.google.common.util.concurrent.FutureCallback;
@@ -48,12 +45,26 @@ public class OutfitsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mMode = getArguments().getString(ARG_MODE);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
+        if (getArguments() != null) {
+            mMode = getArguments().getString(ARG_MODE);
+        }
+//        if (getArguments() != null) {
+//            String mode = requireArguments().getString(ARG_MODE);
+//            Log.d("MODE???", mode + "");
+//            if (mode != null && !mode.isEmpty()) {
+//                mMode = mode;
+//            }
+//        }
+
         binding = FragmentOutfitsBinding.inflate(inflater, container, false);
 
         binding.floatingActionButtonOutfits.setOnClickListener(new View.OnClickListener() {
@@ -177,28 +188,28 @@ public class OutfitsFragment extends Fragment {
             }
             else {
                 Log.d("MODO SELECT", "Terminar fragment y devolver resultado!");
-//                Bundle result = new Bundle();
-//                result.putLong("ID_SELECTED", mItem.garmentId);
-//                mFragment.getParentFragmentManager().setFragmentResult("ID_SELECTED", result);
-//                FragmentTransaction transaction = mFragment.getParentFragmentManager().beginTransaction();
-//                transaction.setReorderingAllowed(true)
-//                        .setCustomAnimations(
-//                                R.anim.slide_in,  // exit
-//                                R.anim.slide_out  // popExit
-//                        )
-//                        .remove(mFragment)
-//                        .commit();
+                Bundle result = new Bundle();
+                result.putLong("OUTFIT_ID_SELECT", mItem.outfitId);
+                mFragment.getParentFragmentManager().setFragmentResult("OUTFIT_ID_SELECTED", result);
+                FragmentTransaction transaction = mFragment.getParentFragmentManager().beginTransaction();
+                transaction.setReorderingAllowed(true)
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // exit
+                                R.anim.slide_out  // popExit
+                        )
+                        .remove(mFragment)
+                        .commit();
             }
         }
     }
 
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
+    public static final String ARG_MODE = "mode";
 //    private static final String ARG_PARAM2 = "param2";
 //
 //    // TODO: Rename and change types of parameters
-//    private String mParam1;
+    private String mMode;
 //    private String mParam2;
 //
 //    public OutfitsFragment() {
@@ -214,23 +225,14 @@ public class OutfitsFragment extends Fragment {
 //     * @return A new instance of fragment OutfitsFragment.
 //     */
 //    // TODO: Rename and change types and number of parameters
-//    public static OutfitsFragment newInstance(String param1, String param2) {
-//        OutfitsFragment fragment = new OutfitsFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
+    public static OutfitsFragment newInstance(String mode) {
+        OutfitsFragment fragment = new OutfitsFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_MODE, mode);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 //
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,

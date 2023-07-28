@@ -26,6 +26,9 @@ public interface GarmentDao {
     @Query("SELECT * FROM Garment")
     ListenableFuture<List<Garment>> selectAll();
 
+    @Query("SELECT * FROM Garment")
+    ListenableFuture<List<Garment>> selectAllEvenInactive();
+
     @Query("SELECT * FROM Garment WHERE garmentId=:id")
     ListenableFuture<Garment> selectById(long id);
 

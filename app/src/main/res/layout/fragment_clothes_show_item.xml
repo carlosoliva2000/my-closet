@@ -36,6 +36,7 @@
                     android:id="@+id/card_clothes_image_item"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:visibility="visible"
                     app:layout_constraintBottom_toTopOf="@+id/view2"
